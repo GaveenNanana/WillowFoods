@@ -512,10 +512,11 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) ro
     gap: 0;
     padding: 16px 24px 40px;
     overflow-y: auto;
-    z-index: 99;
+    z-index: 200;
     border-top: 1px solid var(--border);
   }
   nav.nav-open .nav-links { display: flex; }
+  nav.scrolled.nav-open .nav-links { top: 57px; }
   .nav-links li { width: 100%; }
   .nav-links a {
     display: block;
