@@ -29,7 +29,7 @@ function injectNav(isDark = false) {
 }
 
 function injectMarquee() {
-  const items = ['Ceylon Cinnamon','Black Pepper','White Pepper','Cardamom','Cloves','Turmeric','Direct Sourcing','Private Labeling','Bulk Export','50+ Countries'];
+  const items = ['Ceylon Cinnamon','Black Pepper','White Pepper','Direct Sourcing','Private Labeling','Bulk Export','50+ Countries'];
   let html = '';
   for(let i=0;i<2;i++) items.forEach(t => {
     html += `<div class="marquee-item"><span>${t}</span><div class="marquee-dot"></div></div>`;
