@@ -1,5 +1,17 @@
 RewriteEngine On
 
+# Disable LiteSpeed cache
+<IfModule LiteSpeed>
+    CacheDisable public /
+</IfModule>
+
+# Disable caching for HTML files
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+
 # Remove .html extension — redirect /page.html → /page
 RewriteCond %{THE_REQUEST} \s/(.+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
