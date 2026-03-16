@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Willow Foods</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* STORY */
+.story-section { display:grid; grid-template-columns:1fr 1fr; min-height:640px; }
+.story-img { overflow:hidden; position:relative; }
+.story-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.8s; }
+.story-img:hover img { transform:scale(1.04); }
+.story-stat-overlay { position:absolute; bottom:48px; right:-24px; background:var(--dark); padding:36px 44px; text-align:center; z-index:2; }
+.story-stat-overlay .big { font-family:'Cormorant Garamond',serif; font-size:56px; font-weight:300; color:var(--gold); line-height:1; }
+.story-stat-overlay .small { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,240,232,0.55); margin-top:6px; }
+.story-content { padding:100px 80px; display:flex; flex-direction:column; justify-content:center; background:var(--cream); }
+.story-text { font-size:14px; line-height:1.9; color:var(--text-mid); margin-bottom:20px; }
+
+/* WHY CHOOSE */
+.why-choose { padding:100px 60px; background:var(--warm-white); display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:center; }
+.why-list { list-style:none; display:flex; flex-direction:column; gap:0; }
+.why-item { display:flex; align-items:flex-start; gap:16px; padding:20px 0; border-bottom:1px solid var(--border); }
+.why-item:first-child { border-top:1px solid var(--border); }
+.why-check { width:20px; height:20px; border-radius:50%; border:1px solid var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+.why-check::after { content:'✓'; font-size:10px; color:var(--gold); }
+.why-item-text { font-size:14px; line-height:1.6; color:var(--text-mid); }
+
+/* VALUES */
+.values-section { padding:100px 60px; background:var(--cream); }
+.values-header { text-align:center; max-width:560px; margin:0 auto 80px; }
+.values-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--border); }
+.value-card { background:var(--warm-white); padding:48px 36px; text-align:center; transition:background 0.3s; }
+.value-card:hover { background:var(--dark); }
+.value-card:hover .val-title, .value-card:hover .val-desc { color:var(--cream); }
+.value-card:hover .val-icon { color:var(--gold); }
+.val-icon { font-size:28px; color:var(--sage); margin-bottom:24px; display:block; transition:color 0.3s; }
+.val-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; color:var(--dark); margin-bottom:14px; transition:color 0.3s; }
+.val-desc { font-size:13px; line-height:1.7; color:var(--text-light); transition:color 0.3s; }
+
+/* STATS */
+.stats-band { background:var(--forest); display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.stat-item { padding:64px 40px; background:rgba(255,255,255,0.03); text-align:center; transition:background 0.3s; }
+.stat-item:hover { background:rgba(196,163,90,0.08); }
+.stat-num { font-family:'Cormorant Garamond',serif; font-size:72px; font-weight:300; color:var(--gold); line-height:1; margin-bottom:12px; }
+.stat-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,240,232,0.45); }
+
+/* MISSION */
+.mission-section { padding:100px 60px; background:var(--warm-white); text-align:center; }
+.mission-box { max-width:760px; margin:48px auto 0; padding:64px; background:var(--cream); border:1px solid var(--border); position:relative; }
+.mission-box::before { content:''; position:absolute; top:24px; left:24px; right:24px; bottom:24px; border:1px solid rgba(196,163,90,0.2); pointer-events:none; }
+.mission-icon { font-size:32px; color:var(--gold); margin-bottom:24px; display:block; }
+.mission-text { font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2vw,26px); font-weight:300; line-height:1.6; color:var(--dark); font-style:italic; }
+@media (max-width:768px) {
+  .story-section { grid-template-columns:1fr; }
+  .story-img { height:300px; }
+  .story-stat-overlay { right:16px; bottom:16px; padding:24px 28px; }
+  .story-content { padding:60px 24px; }
+  .why-choose { grid-template-columns:1fr; gap:40px; padding:60px 24px; }
+  .values-section { padding:60px 24px; }
+  .values-grid { grid-template-columns:1fr 1fr; }
+  .stats-band { grid-template-columns:1fr; }
+  .stat-item { padding:48px 24px; }
+  .mission-section { padding:60px 24px; }
+  .mission-box { padding:40px 28px; }
+}
+@media (max-width:480px) {
+  .values-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="page-hero" style="--img:url('https://images.unsplash.com/photo-1502741126161-b048400d7e81?w=1200&q=80')">
+  <style>.page-hero::before{background-image:var(--img);}</style>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Our Heritage</div>
+    <h1>About <em>Willow Foods</em></h1>
+    <p>Bringing the authentic flavors of Ceylon to the world through quality, tradition, and excellence. Rooted in Sri Lanka, reaching every corner of the globe.</p>
+  </div>
+</section>
+
+
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-img">
+    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=900&q=80" alt="Sri Lanka plantation">
+    <div class="story-stat-overlay">
+      <div class="big">15+</div>
+      <div class="small">Years of Excellence</div>
+    </div>
+  </div>
+  <div class="story-content">
+    <div class="section-label reveal"><span>Our Story</span></div>
+    <h2 class="section-title reveal">Rooted in <em>Ceylon</em></h2>
+    <p class="story-text reveal">Willow Foods was founded with a passion for sharing the rich heritage of Ceylon spices with the world. Nestled in the heart of Sri Lanka, we work directly with local farmers and plantations to source the finest quality spices.</p>
+    <p class="story-text reveal">Our commitment to authenticity, sustainability, and excellence has made us a trusted partner for businesses worldwide. From small artisanal brands to large-scale operations, we provide customized solutions that meet the highest standards of quality.</p>
+    <p class="story-text reveal">Every spice we export carries the legacy of centuries-old cultivation practices, combined with modern quality assurance to deliver products that exceed expectations. When you partner with Willow Foods, you're not just buying spices — you're connecting your brand with centuries of Sri Lankan heritage.</p>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-choose">
+  <div>
+    <div class="section-label reveal"><span>Why Choose Us</span></div>
+    <h2 class="section-title reveal">The Willow <em>Advantage</em></h2>
+    <p class="section-sub reveal" style="max-width:100%">We've built our reputation on seven core commitments that set us apart from ordinary spice exporters.</p>
+  </div>
+  <ul class="why-list">
+    <li class="why-item reveal"><div class="why-check"></div><span class="why-item-text">Direct sourcing from Sri Lankan plantations — no middlemen, better prices</span></li>
+    <li class="why-item reveal reveal-delay-1"><div class="why-check"></div><span class="why-item-text">Rigorous quality control and testing to international standards</span></li>
+    <li class="why-item reveal reveal-delay-2"><div class="why-check"></div><span class="why-item-text">Custom packaging and private labeling for any brand or scale</span></li>
+    <li class="why-item reveal reveal-delay-3"><div class="why-check"></div><span class="why-item-text">Competitive wholesale pricing with volume discounts</span></li>
+    <li class="why-item reveal"><div class="why-check"></div><span class="why-item-text">Sustainable and ethical farming practices at every stage</span></li>
+    <li class="why-item reveal reveal-delay-1"><div class="why-check"></div><span class="why-item-text">Global shipping with reliable logistics to 50+ countries</span></li>
+    <li class="why-item reveal reveal-delay-2"><div class="why-check"></div><span class="why-item-text">Dedicated customer support with flexible order quantities</span></li>
+  </ul>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-header">
+    <div class="section-label reveal" style="justify-content:center"><span>Our Principles</span></div>
+    <h2 class="section-title reveal" style="text-align:center">Our <em>Values</em></h2>
+    <p class="section-sub reveal" style="margin:0 auto">The principles that guide everything we do — from sourcing to shipping.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <span class="val-icon">◈</span>
+      <div class="val-title">Quality First</div>
+      <div class="val-desc">We never compromise on quality. Every batch is tested and certified to ensure premium standards are met and exceeded.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-1">
+      <span class="val-icon">⟲</span>
+      <div class="val-title">Sustainability</div>
+      <div class="val-desc">We support sustainable farming practices that protect the environment and empower local farming communities in Sri Lanka.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-2">
+      <span class="val-icon">⊕</span>
+      <div class="val-title">Partnership</div>
+      <div class="val-desc">Building long-term relationships with farmers, clients, and communities is at the very core of how we do business.</div>
+    </div>
+    <div class="value-card reveal reveal-delay-3">
+      <span class="val-icon">◎</span>
+      <div class="val-title">Global Reach</div>
+      <div class="val-desc">Connecting Sri Lankan heritage with customers worldwide — delivering authentic flavor across more than 50 countries.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stat-item reveal"><div class="stat-num">50+</div><div class="stat-label">Countries Served</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-num">200+</div><div class="stat-label">Happy Clients</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-num">100%</div><div class="stat-label">Quality Assured</div></div>
+</div>
+
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="section-label reveal" style="justify-content:center"><span>Our Purpose</span></div>
+  <h2 class="section-title reveal" style="text-align:center">Our <em>Mission</em></h2>
+  <div class="mission-box reveal">
+    <span class="mission-icon">↗</span>
+    <p class="mission-text">To be the world's most trusted source of premium Ceylon spices by combining traditional cultivation methods with modern quality standards, while supporting sustainable practices and empowering local farming communities in Sri Lanka.</p>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-bg-text">Ceylon</div>
+  <div class="cta-eyebrow reveal">Ready to Partner?</div>
+  <h2 class="cta-title reveal">Elevate Your <em>Business</em><br>with Ceylon Spices</h2>
+  <p class="cta-sub reveal">Partner with Willow Foods for premium Ceylon spices. Contact us today to discuss your requirements.</p>
+  <div class="cta-btn-wrap reveal"><a href="contact.html" class="btn-cta">Get in Touch →</a></div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+<script>injectNav();injectFooter();initReveal();</script>
+</body>
+</html>

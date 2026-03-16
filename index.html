@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Willow Foods — Pure Ceylon Spices</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; position:relative; overflow:hidden; }
+.hero-left { background:var(--forest); display:flex; flex-direction:column; justify-content:center; padding:80px 60px; position:relative; overflow:hidden; }
+.hero-left::before { content:''; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1599909631467-e141cf37bc89?w=800') center/cover; opacity:0.12; }
+.hero-left::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, var(--forest) 45%, transparent); }
+.hero-left-content { position:relative; z-index:2; }
+.hero-eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:24px; opacity:0; animation:fadeUp 0.8s 0.3s forwards; }
+.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(52px,6vw,92px); font-weight:300; line-height:0.95; color:var(--cream); margin-bottom:32px; opacity:0; animation:fadeUp 0.8s 0.5s forwards; }
+.hero-title em { font-style:italic; color:var(--gold); }
+.hero-sub { font-size:14px; line-height:1.8; color:rgba(245,240,232,0.6); max-width:360px; margin-bottom:48px; opacity:0; animation:fadeUp 0.8s 0.7s forwards; }
+.hero-actions { display:flex; gap:16px; opacity:0; animation:fadeUp 0.8s 0.9s forwards; }
+.hero-right { background:var(--cream); display:grid; grid-template-rows:1fr 1fr; gap:3px; padding:3px; }
+.hero-img-top { overflow:hidden; }
+.hero-img-top img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s; }
+.hero-img-top:hover img { transform:scale(1.04); }
+.hero-img-bottom { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+.hero-img-bottom > div { overflow:hidden; }
+.hero-img-bottom > div img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s; }
+.hero-img-bottom > div:hover img { transform:scale(1.06); }
+.hero-scroll { position:absolute; bottom:40px; left:calc(50% - 160px); display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(245,240,232,0.4); font-size:9px; letter-spacing:3px; text-transform:uppercase; z-index:10; animation:fadeIn 1s 1.5s both; }
+.scroll-line { width:1px; height:40px; background:var(--gold); animation:scrollPulse 2s infinite; }
+
+.home-services { padding:120px 60px; background:var(--cream); }
+.services-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px; }
+.services-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); }
+.svc-card { background:var(--warm-white); padding:48px 40px; position:relative; overflow:hidden; transition:background 0.4s; }
+.svc-card:hover { background:var(--dark); }
+.svc-card:hover .svc-title, .svc-card:hover .svc-desc { color:var(--cream); }
+.svc-card:hover .svc-icon { color:var(--gold); }
+.svc-card:hover .svc-num { color:rgba(245,240,232,0.04); }
+.svc-num { position:absolute; top:28px; right:28px; font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:rgba(26,23,18,0.05); line-height:1; transition:color 0.4s; }
+.svc-icon { font-size:24px; color:var(--sage); margin-bottom:28px; transition:color 0.4s; }
+.svc-title { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--dark); margin-bottom:14px; transition:color 0.4s; }
+.svc-desc { font-size:13px; line-height:1.8; color:var(--text-light); margin-bottom:28px; transition:color 0.4s; }
+.svc-link { display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; transition:gap 0.3s; }
+.svc-card:hover .svc-link { gap:14px; }
+
+.home-products { padding:120px 60px; background:var(--warm-white); }
+.products-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px; }
+.products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); }
+.product-card { background:var(--cream); overflow:hidden; text-decoration:none; display:block; }
+.product-card.featured { grid-column:span 2; }
+.product-img { overflow:hidden; }
+.product-card .product-img { aspect-ratio:4/3; }
+.product-card.featured .product-img { aspect-ratio:16/7; }
+.product-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; display:block; }
+.product-card:hover .product-img img { transform:scale(1.06); }
+.product-info { padding:28px 32px 36px; }
+.product-origin { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.product-name { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; color:var(--dark); margin-bottom:10px; }
+.product-desc { font-size:13px; line-height:1.7; color:var(--text-light); margin-bottom:20px; }
+.product-tags { display:flex; gap:8px; flex-wrap:wrap; }
+.tag { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:5px 12px; border:1px solid var(--border); color:var(--text-mid); }
+
+.stats-band { background:var(--forest); display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.stat-item { padding:64px 40px; background:rgba(255,255,255,0.03); text-align:center; transition:background 0.3s; }
+.stat-item:hover { background:rgba(196,163,90,0.08); }
+.stat-num { font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300; color:var(--gold); line-height:1; margin-bottom:12px; }
+.stat-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,240,232,0.45); }
+
+.about-teaser { display:grid; grid-template-columns:1fr 1fr; min-height:560px; }
+.about-img { overflow:hidden; }
+.about-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.8s; display:block; }
+.about-img:hover img { transform:scale(1.04); }
+.about-content { padding:100px 80px; display:flex; flex-direction:column; justify-content:center; background:var(--cream); }
+.about-mission { margin-top:32px; padding:32px; background:var(--warm-white); border-left:2px solid var(--gold); }
+.about-mission p { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; line-height:1.6; color:var(--text-mid); font-style:italic; }
+@media (max-width:768px) {
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-left { padding:80px 24px; min-height:100vh; }
+  .hero-right { height:60vw; }
+  .hero-img-bottom { display:none; }
+  .hero-scroll { display:none; }
+  .home-services { padding:72px 24px; }
+  .services-header { flex-direction:column; align-items:flex-start; gap:24px; }
+  .services-cards { grid-template-columns:1fr; }
+  .svc-card { padding:36px 28px; }
+  .home-products { padding:72px 24px; }
+  .products-header { flex-direction:column; align-items:flex-start; gap:24px; }
+  .products-grid { grid-template-columns:1fr; }
+  .stats-band { grid-template-columns:1fr 1fr; }
+  .stat-item { padding:40px 20px; }
+  .stat-num { font-size:48px; }
+  .about-teaser { grid-template-columns:1fr; }
+  .about-img { height:280px; }
+  .about-content { padding:60px 24px; }
+}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-left-content">
+      <div class="hero-eyebrow">Est. Sri Lanka · Direct from Source</div>
+      <h1 class="hero-title">Pure<br><em>Ceylon</em><br>Spices</h1>
+      <p class="hero-sub">Premium spices sourced directly from Sri Lankan plantations. Authentic flavors delivered worldwide through bulk exports and private labeling.</p>
+      <div class="hero-actions">
+        <a href="products.html" class="btn-primary">Explore Spices →</a>
+        <a href="contact.html" class="btn-outline-light">Talk to Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-top"><img src="https://images.unsplash.com/photo-1599909631467-e141cf37bc89?w=900&q=80" alt="Ceylon cinnamon"></div>
+    <div class="hero-img-bottom">
+      <div><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=500&q=80" alt="Black pepper"></div>
+      <div><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500&q=80" alt="Spices collection"></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+
+
+<section class="home-services">
+  <div class="services-header">
+    <div>
+      <div class="section-label reveal"><span>What We Offer</span></div>
+      <h2 class="section-title reveal">Our <em>Services</em></h2>
+    </div>
+    <a href="services.html" class="btn-outline-dark reveal">All Services →</a>
+  </div>
+  <div class="services-cards">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">◈</div>
+      <h3 class="svc-title">Private Labeling</h3>
+      <p class="svc-desc">Build your own spice brand with our comprehensive private labeling services. We handle everything from sourcing to packaging.</p>
+      <a href="services.html" class="svc-link">Learn more →</a>
+    </div>
+    <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">⊞</div>
+      <h3 class="svc-title">Bulk Exporting</h3>
+      <p class="svc-desc">Wholesale quantities of authentic Ceylon spices. Competitive pricing and reliable delivery for orders of all sizes.</p>
+      <a href="services.html" class="svc-link">Learn more →</a>
+    </div>
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">◎</div>
+      <h3 class="svc-title">Worldwide Shipping</h3>
+      <p class="svc-desc">Delivering to customers across the globe with secure, efficient logistics backed by trusted partners.</p>
+      <a href="services.html" class="svc-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-products">
+  <div class="products-header">
+    <div>
+      <div class="section-label reveal"><span>Our Range</span></div>
+      <h2 class="section-title reveal">Premium <em>Spices</em></h2>
+      <p class="section-sub reveal">Handpicked from the finest plantations in Sri Lanka — centuries of tradition in every batch.</p>
+    </div>
+    <a href="products.html" class="btn-outline-dark reveal">View All →</a>
+  </div>
+  <div class="products-grid">
+    <a href="product-cinnamon.html" class="product-card reveal">
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1599909631467-e141cf37bc89?w=1200&q=80" alt="Ceylon Cinnamon"></div>
+      <div class="product-info">
+        <div class="product-origin">Sri Lanka (Ceylon) · HS 09061100</div>
+        <h3 class="product-name">Ceylon Cinnamon</h3>
+        <p class="product-desc">Known as 'true cinnamon' — sweet, delicate flavor with subtle citrus notes. Sourced directly from Cinnamomum verum trees in Sri Lanka.</p>
+        <div class="product-tags"><span class="tag">Alba</span><span class="tag">Special</span><span class="tag">C5 & C4</span><span class="tag">H1 & H2</span></div>
+      </div>
+    </a>
+    <a href="product-black-pepper.html" class="product-card reveal reveal-delay-1">
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=600&q=80" alt="Black Pepper"></div>
+      <div class="product-info">
+        <div class="product-origin">Sri Lanka · HS 09041120</div>
+        <h3 class="product-name">Black Pepper</h3>
+        <p class="product-desc">Bold, pungent peppercorns with high piperine content. Sun-dried to preserve natural oils and intense aroma.</p>
+        <div class="product-tags"><span class="tag">FAQ Grade</span><span class="tag">ASTA</span></div>
+      </div>
+    </a>
+    <a href="product-white-pepper.html" class="product-card reveal reveal-delay-2">
+      <div class="product-img"><img src="https://images.unsplash.com/photo-1530983822321-fcac2d0c5b65?w=600&q=80" alt="White Pepper"></div>
+      <div class="product-info">
+        <div class="product-origin">Sri Lanka · HS 09041120</div>
+        <h3 class="product-name">White Pepper</h3>
+        <p class="product-desc">Milder heat, smooth earthy flavor — perfect for light-colored dishes and premium food processing.</p>
+        <div class="product-tags"><span class="tag">FAQ Grade</span><span class="tag">Light Berries</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item reveal"><div class="stat-num">50+</div><div class="stat-label">Countries Served</div></div>
+  <div class="stat-item reveal reveal-delay-1"><div class="stat-num">200+</div><div class="stat-label">Happy Clients</div></div>
+  <div class="stat-item reveal reveal-delay-2"><div class="stat-num">100%</div><div class="stat-label">Quality Assured</div></div>
+  <div class="stat-item reveal reveal-delay-3"><div class="stat-num">15+</div><div class="stat-label">Years of Heritage</div></div>
+</div>
+
+<section class="about-teaser">
+  <div class="about-img"><img src="https://images.unsplash.com/photo-1502741126161-b048400d7e81?w=900&q=80" alt="Sri Lanka spice plantation"></div>
+  <div class="about-content">
+    <div class="section-label reveal"><span>Our Story</span></div>
+    <h2 class="section-title reveal">Rooted in <em>Ceylon</em></h2>
+    <p class="section-sub reveal" style="max-width:100%;margin-bottom:24px">Willow Foods was founded with a passion for sharing the rich heritage of Ceylon spices with the world. We work directly with local farmers and plantations to source the finest quality spices.</p>
+    <div class="about-mission reveal">
+      <p>"To be the world's most trusted source of premium Ceylon spices by combining traditional cultivation methods with modern quality standards."</p>
+    </div>
+    <br>
+    <a href="about.html" class="btn-outline-dark reveal">Our Full Story →</a>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-bg-text">Ceylon</div>
+  <div class="cta-eyebrow reveal">Ready to Partner?</div>
+  <h2 class="cta-title reveal">Elevate Your <em>Business</em><br>with Ceylon Spices</h2>
+  <p class="cta-sub reveal">Partner with Willow Foods for premium Ceylon spices. Contact us today to discuss your requirements.</p>
+  <div class="cta-btn-wrap reveal"><a href="contact.html" class="btn-cta">Get in Touch →</a></div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+<script>injectNav(true);injectFooter();initReveal();</script>
+</body>
+</html>

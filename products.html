@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Products — Willow Foods</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.products-main { padding:80px 60px 120px; }
+.products-intro { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:80px; }
+.filter-bar { display:flex; align-items:center; gap:12px; margin-bottom:48px; flex-wrap:wrap; }
+.filter-label { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--text-light); margin-right:8px; }
+.filter-btn { padding:10px 22px; border:1px solid var(--border); font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--text-mid); background:transparent; cursor:pointer; transition:all 0.3s; font-family:'Jost',sans-serif; }
+.filter-btn:hover, .filter-btn.active { background:var(--dark); color:var(--cream); border-color:var(--dark); }
+
+.all-products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); }
+.prod-card { background:var(--cream); text-decoration:none; display:block; overflow:hidden; }
+.prod-card.wide { grid-column:span 2; }
+.prod-img { overflow:hidden; }
+.prod-card .prod-img { aspect-ratio:4/3; }
+.prod-card.wide .prod-img { aspect-ratio:16/7; }
+.prod-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; display:block; }
+.prod-card:hover .prod-img img { transform:scale(1.06); }
+.prod-info { padding:28px 32px 40px; }
+.prod-hs { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.prod-name { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--dark); margin-bottom:10px; }
+.prod-desc { font-size:13px; line-height:1.7; color:var(--text-light); margin-bottom:20px; }
+.prod-meta { display:flex; gap:24px; margin-bottom:20px; }
+.prod-meta-item { display:flex; flex-direction:column; gap:4px; }
+.prod-meta-item .label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--text-light); }
+.prod-meta-item .value { font-size:13px; color:var(--dark); }
+.prod-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+.tag { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; padding:5px 12px; border:1px solid var(--border); color:var(--text-mid); }
+.prod-cta { display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--dark); text-decoration:none; border-bottom:1px solid var(--gold); padding-bottom:4px; transition:gap 0.3s; }
+.prod-card:hover .prod-cta { gap:14px; }
+@media (max-width:768px) {
+  .products-main { padding:60px 24px 80px; }
+  .products-intro { grid-template-columns:1fr; gap:24px; margin-bottom:40px; }
+  .all-products-grid { grid-template-columns:1fr; }
+  .prod-info { padding:24px 24px 32px; }
+  .prod-meta { flex-wrap:wrap; gap:16px; }
+}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="page-hero" style="--img:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80')">
+  <style>.page-hero::before{background-image:var(--img);}</style>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Direct from Sri Lanka</div>
+    <h1>Our Premium <em>Spices</em></h1>
+    <p>Handpicked from the finest plantations in Sri Lanka. Our spices embody centuries of cultivation tradition and unmatched quality — from cinnamon groves to pepper vines.</p>
+  </div>
+</section>
+
+
+
+<section class="products-main">
+  <div class="products-intro">
+    <div>
+      <div class="section-label reveal"><span>Our Collection</span></div>
+      <h2 class="section-title reveal" style="margin-bottom:0">Six <em>Signature</em> Spices</h2>
+    </div>
+    <p class="section-sub reveal">Every product is traceable to its source, tested for quality, and available in bulk or retail-ready formats with custom private labeling options.</p>
+  </div>
+
+  <div class="filter-bar reveal">
+    <span class="filter-label">Filter by:</span>
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('pepper',this)">Peppers</button>
+    <button class="filter-btn" onclick="filterProducts('bark',this)">Bark & Root</button>
+    <button class="filter-btn" onclick="filterProducts('pod',this)">Pods & Buds</button>
+  </div>
+
+  <div class="all-products-grid" id="productsGrid">
+    <a href="product-cinnamon.html" class="prod-card reveal" data-cat="bark">
+      <div class="prod-img"><img src="https://images.unsplash.com/photo-1599909631467-e141cf37bc89?w=1200&q=80" alt="Ceylon Cinnamon"></div>
+      <div class="prod-info">
+        <div class="prod-hs">HS Code: 09061100 · 10–20 MT/Month</div>
+        <h3 class="prod-name">Ceylon Cinnamon</h3>
+        <p class="prod-desc">Known as 'true cinnamon', sourced from the inner bark of Cinnamomum verum trees grown in Sri Lanka. A sweet, delicate flavor with subtle citrus notes and lower coumarin content — making it safer and superior to common cassia cinnamon.</p>
+        <div class="prod-meta">
+          <div class="prod-meta-item"><span class="label">Shelf Life</span><span class="value">24 Months</span></div>
+          <div class="prod-meta-item"><span class="label">Storage</span><span class="value">Cool, dry, away from sunlight</span></div>
+          <div class="prod-meta-item"><span class="label">Origin</span><span class="value">Sri Lanka (Ceylon)</span></div>
+        </div>
+        <div class="prod-tags"><span class="tag">Alba</span><span class="tag">Special</span><span class="tag">C5 & C4</span><span class="tag">H1 & H2</span></div>
+        <span class="prod-cta">View Product →</span>
+      </div>
+    </a>
+
+    <a href="product-black-pepper.html" class="prod-card reveal reveal-delay-1" data-cat="pepper">
+      <div class="prod-img"><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=700&q=80" alt="Black Pepper"></div>
+      <div class="prod-info">
+        <div class="prod-hs">HS Code: 09041120 · 15–25 MT/Month</div>
+        <h3 class="prod-name">Black Pepper</h3>
+        <p class="prod-desc">Bold, pungent whole peppercorns with high piperine content. Sun-dried to preserve natural oils and intense aroma.</p>
+        <div class="prod-tags"><span class="tag">FAQ Grade</span><span class="tag">ASTA</span><span class="tag">Bold 500g/l+</span></div>
+        <span class="prod-cta">View Product →</span>
+      </div>
+    </a>
+
+    <a href="product-white-pepper.html" class="prod-card reveal reveal-delay-2" data-cat="pepper">
+      <div class="prod-img"><img src="https://images.unsplash.com/photo-1530983822321-fcac2d0c5b65?w=700&q=80" alt="White Pepper"></div>
+      <div class="prod-info">
+        <div class="prod-hs">HS Code: 09041120 · 15–25 MT/Month</div>
+        <h3 class="prod-name">White Pepper</h3>
+        <p class="prod-desc">Fully ripened pepper berries with outer skin removed. Milder heat and smooth, earthy flavor — preferred for light-colored dishes.</p>
+        <div class="prod-tags"><span class="tag">FAQ Grade</span><span class="tag">ASTA</span><span class="tag">Light Berries</span></div>
+        <span class="prod-cta">View Product →</span>
+      </div>
+    </a>
+
+    <a href="product-cardamom.html" class="prod-card reveal" data-cat="pod">
+      <div class="prod-img"><img src="https://images.unsplash.com/photo-1638424085074-c72e28e32a9e?w=700&q=80" alt="Cardamom"></div>
+      <div class="prod-info">
+        <div class="prod-hs">HS Code: 09083110 · 5–10 MT/Month</div>
+        <h3 class="prod-name">Cardamom</h3>
+        <p class="prod-desc">Fragrant green cardamom pods with a warm, eucalyptus-like aroma. A prized spice in culinary and wellness traditions worldwide.</p>
+        <div class="prod-tags"><span class="tag">Green Pods</span><span class="tag">Ground</span><span class="tag">Bleached</span></div>
+        <span class="prod-cta">View Product →</span>
+      </div>
+    </a>
+
+    <a href="product-cloves.html" class="prod-card reveal reveal-delay-1" data-cat="pod">
+      <div class="prod-img"><img src="https://images.unsplash.com/photo-1597226401066-8d12676b5a5a?w=700&q=80" alt="Cloves"></div>
+      <div class="prod-info">
+        <div class="prod-hs">HS Code: 09071000 · 5–10 MT/Month</div>
+        <h3 class="prod-name">Cloves</h3>
+        <p class="prod-desc">Aromatic dried flower buds with a warm, pungent sweetness. Essential in spice blends, marinades, and traditional medicine.</p>
+        <div class="prod-tags"><span class="tag">Whole</span><span class="tag">Ground</span><span class="tag">Select Grade</span></div>
+        <span class="prod-cta">View Product →</span>
+      </div>
+    </a>
+
+    <a href="product-turmeric.html" class="prod-card reveal reveal-delay-2" data-cat="bark">
+      <div class="prod-img"><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=700&q=80" alt="Turmeric"></div>
+      <div class="prod-info">
+        <div class="prod-hs">HS Code: 09103000 · 10–20 MT/Month</div>
+        <h3 class="prod-name">Turmeric</h3>
+        <p class="prod-desc">Vibrant golden powder known for its earthy flavor and powerful health benefits. High curcumin content from Sri Lankan highland varieties.</p>
+        <div class="prod-tags"><span class="tag">High Curcumin</span><span class="tag">Whole</span><span class="tag">Ground</span></div>
+        <span class="prod-cta">View Product →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-bg-text">Spices</div>
+  <div class="cta-eyebrow reveal">Custom Orders Welcome</div>
+  <h2 class="cta-title reveal">Need Something <em>Specific?</em></h2>
+  <p class="cta-sub reveal">We accommodate custom blends, specific grades, and private label packaging. Get in touch to discuss your exact requirements.</p>
+  <div class="cta-btn-wrap reveal"><a href="contact.html" class="btn-cta">Request a Quote →</a></div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+<script>
+injectNav();injectFooter();initReveal();
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.prod-card').forEach(card => {
+    if(cat==='all'||card.dataset.cat===cat) { card.style.display='block'; }
+    else { card.style.display='none'; }
+  });
+}
+</script>
+</body>
+</html>

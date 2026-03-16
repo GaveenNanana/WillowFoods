@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Pepper — Willow Foods</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.product-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px;}
+.product-gallery{background:var(--cream);position:relative;overflow:hidden;}
+.gallery-main{width:100%;height:520px;overflow:hidden;}
+.gallery-main img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s;}
+.gallery-main:hover img{transform:scale(1.04);}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:3px;background:var(--border);}
+.gallery-thumb{aspect-ratio:1;overflow:hidden;cursor:pointer;opacity:0.6;transition:opacity 0.3s;}
+.gallery-thumb.active{opacity:1;outline:2px solid var(--gold);}
+.gallery-thumb:hover{opacity:1;}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;}
+.product-details{padding:60px 64px;display:flex;flex-direction:column;background:var(--warm-white);}
+.product-details h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,3.5vw,54px);font-weight:400;line-height:1.05;color:var(--dark);margin-bottom:20px;}
+.product-lead{font-size:15px;line-height:1.8;color:var(--text-mid);margin-bottom:36px;}
+.product-specs{background:var(--cream);border:1px solid var(--border);padding:0;margin-bottom:32px;}
+.spec-row{display:grid;grid-template-columns:140px 1fr;border-bottom:1px solid var(--border);}
+.spec-row:last-child{border-bottom:none;}
+.spec-label{padding:14px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);background:var(--warm-white);border-right:1px solid var(--border);}
+.spec-val{padding:14px 20px;font-size:13px;color:var(--dark);}
+.product-cta-area{display:flex;gap:12px;margin-top:8px;}
+.product-info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);padding:60px 60px;}
+.info-card{background:var(--cream);padding:40px 36px;}
+.info-card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--dark);margin-bottom:20px;}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.info-list li{font-size:13px;color:var(--text-mid);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+.info-list li::before{content:'–';color:var(--gold);flex-shrink:0;}
+.related-products{padding:80px 60px;background:var(--warm-white);}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:48px;}
+.related-card{background:var(--cream);overflow:hidden;text-decoration:none;display:block;}
+.related-img{aspect-ratio:4/3;overflow:hidden;}
+.related-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;display:block;}
+.related-card:hover .related-img img{transform:scale(1.06);}
+.related-info{padding:24px 28px 32px;}
+.related-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);margin-bottom:8px;}
+.related-desc{font-size:12px;line-height:1.6;color:var(--text-light);margin-bottom:16px;}
+.related-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+@media (max-width:768px) {
+  .product-layout { grid-template-columns:1fr; }
+  .gallery-main { height:280px; }
+  .product-details { padding:40px 24px; }
+  .product-cta-area { flex-direction:column; }
+  .product-info-grid { grid-template-columns:1fr; padding:40px 24px; }
+  .related-products { padding:60px 24px; }
+  .related-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<a href="products.html" class="back-link">Back to Products</a>
+
+<div class="product-layout">
+  <div class="product-gallery">
+    <div class="gallery-main">
+      <img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=900&q=80" alt="Black Pepper" id="mainImg">
+    </div>
+    <div class="gallery-thumbs">
+      <div class="gallery-thumb active" onclick="switchImg(this,'https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=900&q=80')"><img src="https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=200&q=70" alt="Whole"></div>
+      <div class="gallery-thumb" onclick="switchImg(this,'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80')"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=70" alt="Ground"></div>
+      <div class="gallery-thumb" onclick="switchImg(this,'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=900&q=80')"><img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=200&q=70" alt="Bulk"></div>
+      <div class="gallery-thumb" onclick="switchImg(this,'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=900&q=80')"><img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=200&q=70" alt="Packed"></div>
+    </div>
+  </div>
+  <div class="product-details">
+    <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Pepper</div>
+    <h1>Black <em style="font-style:italic;color:var(--sage)">Pepper</em></h1>
+    <p class="product-lead">Bold, pungent whole peppercorns with high piperine content. Sun-dried to preserve natural oils and intense aroma. Ideal for seasoning, spice blends, and grinding applications. Sourced directly from Sri Lanka's finest pepper vines.</p>
+    <div class="product-specs">
+      <div class="spec-row"><span class="spec-label">Origin</span><span class="spec-val">Sri Lanka (Ceylon)</span></div>
+      <div class="spec-row"><span class="spec-label">HS Code</span><span class="spec-val">09041120</span></div>
+      <div class="spec-row"><span class="spec-label">Supply</span><span class="spec-val">15–25 MT/Month</span></div>
+      <div class="spec-row"><span class="spec-label">Shelf Life</span><span class="spec-val">24 Months</span></div>
+      <div class="spec-row"><span class="spec-label">Storage</span><span class="spec-val">Cool, dry place in airtight conditions</span></div>
+      <div class="spec-row"><span class="spec-label">Packaging</span><span class="spec-val">Packed in food-grade export cartons (whole pepper in bulk bags or retail-ready pouches/jars)</span></div>
+    </div>
+    <div class="product-cta-area">
+      <a href="contact.html" class="btn-dark" style="flex:1">Request Quote</a>
+      <a href="contact.html" class="btn-outline-dark" style="padding:16px 24px">Get Samples</a>
+    </div>
+  </div>
+</div>
+
+<div class="product-info-grid">
+  <div class="info-card reveal">
+    <div class="info-card-title">⊞ Grades Available</div>
+    <ul class="info-list">
+      <li>FAQ (Fair Average Quality)</li>
+      <li>ASTA Grade</li>
+      <li>Bold (500g/l, 550g/l, 600g/l+)</li>
+      <li>Light Berries / Pinheads</li>
+    </ul>
+  </div>
+  <div class="info-card reveal reveal-delay-1">
+    <div class="info-card-title">◈ Health Benefits</div>
+    <ul class="info-list">
+      <li>Rich in antioxidants</li>
+      <li>Contains piperine — enhances nutrient absorption</li>
+      <li>Supports digestion</li>
+      <li>May help improve metabolism</li>
+      <li>Anti-inflammatory properties</li>
+    </ul>
+  </div>
+  <div class="info-card reveal reveal-delay-2">
+    <div class="info-card-title">◎ Packaging Options</div>
+    <ul class="info-list">
+      <li>Bulk bags (5kg, 10kg, 25kg, custom)</li>
+      <li>Whole or ground</li>
+      <li>Retail packaging (50g, 100g, 250g, custom)</li>
+      <li>Custom private labeling available</li>
+    </ul>
+  </div>
+</div>
+
+<section class="related-products">
+  <div class="section-label reveal"><span>Also From Willow Foods</span></div>
+  <h2 class="section-title reveal">Related <em>Products</em></h2>
+  <div class="related-grid">
+    <a href="product-white-pepper.html" class="related-card reveal">
+      <div class="related-img"><img src="https://images.unsplash.com/photo-1530983822321-fcac2d0c5b65?w=600&q=80" alt="White Pepper"></div>
+      <div class="related-info"><div class="related-name">White Pepper</div><div class="related-desc">Milder heat and smooth earthy flavor — preferred for light-colored dishes and premium applications.</div><span class="related-link">View →</span></div>
+    </a>
+    <a href="product-cinnamon.html" class="related-card reveal reveal-delay-1">
+      <div class="related-img"><img src="https://images.unsplash.com/photo-1599909631467-e141cf37bc89?w=600&q=80" alt="Ceylon Cinnamon"></div>
+      <div class="related-info"><div class="related-name">Ceylon Cinnamon</div><div class="related-desc">True cinnamon with sweet, delicate flavor and subtle citrus notes from Sri Lanka's finest trees.</div><span class="related-link">View →</span></div>
+    </a>
+    <a href="product-cloves.html" class="related-card reveal reveal-delay-2">
+      <div class="related-img"><img src="https://images.unsplash.com/photo-1597226401066-8d12676b5a5a?w=600&q=80" alt="Cloves"></div>
+      <div class="related-info"><div class="related-name">Cloves</div><div class="related-desc">Aromatic dried flower buds with a warm, pungent sweetness for blends and marinades.</div><span class="related-link">View →</span></div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-bg-text">Pepper</div>
+  <div class="cta-eyebrow reveal">Ready to Order?</div>
+  <h2 class="cta-title reveal">Request a <em>Sample</em><br>or Get a Quote</h2>
+  <p class="cta-sub reveal">Contact us to discuss order volumes, grades, packaging requirements, or request product samples.</p>
+  <div class="cta-btn-wrap reveal"><a href="contact.html" class="btn-cta">Get in Touch →</a></div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+<script>
+injectNav();injectFooter();initReveal();
+function switchImg(thumb,src){document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active'));thumb.classList.add('active');document.getElementById('mainImg').src=src;}
+</script>
+</body>
+</html>
