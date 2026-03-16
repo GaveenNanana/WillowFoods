@@ -1,6 +1,6 @@
 // Shared nav + footer injection
 function getActivePage() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const path = window.location.pathname.split('/').pop().replace('.html','') || 'index';
   return path;
 }
 
@@ -9,17 +9,17 @@ function injectNav(isDark = false) {
   const darkClass = isDark ? 'dark-nav' : '';
   document.getElementById('nav-placeholder').innerHTML = `
   <nav id="mainNav" class="${darkClass}">
-    <a href="index.html" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="WFlogo.svg" alt="Willow Foods" class="nav-logo-img">
     </a>
     <button class="nav-hamburger" onclick="document.getElementById('mainNav').classList.toggle('nav-open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="products.html" ${page==='products.html'||page.includes('product-')?'class="active"':''}>Products</a></li>
-      <li><a href="services.html" ${page==='services.html'?'class="active"':''}>Services</a></li>
-      <li><a href="about.html" ${page==='about.html'?'class="active"':''}>About Us</a></li>
-      <li><a href="contact.html" class="btn-nav">Talk to Us</a></li>
+      <li><a href="/products" ${page==='products'||page.includes('product-')?'class="active"':''}>Products</a></li>
+      <li><a href="/services" ${page==='services'?'class="active"':''}>Services</a></li>
+      <li><a href="/about" ${page==='about'?'class="active"':''}>About Us</a></li>
+      <li><a href="/contact" class="btn-nav">Talk to Us</a></li>
     </ul>
   </nav>`;
   const nav = document.getElementById('mainNav');
@@ -42,7 +42,7 @@ function injectFooter() {
   <footer>
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="footer-logo">
+        <a href="/" class="footer-logo">
           <img src="WFlogo.svg" alt="Willow Foods" class="footer-logo-img">
         </a>
         <p class="footer-tagline">Bringing the authentic flavors of Sri Lanka to the world through premium quality spices and exceptional service.</p>
@@ -50,10 +50,10 @@ function injectFooter() {
       <div>
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links">
-          <li><a href="products.html">Our Products</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/products">Our Products</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div>

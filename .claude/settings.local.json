@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --version)",
+      "Bash(sed -i '' 's/<div id=\"\"marquee-placeholder\"\"><\\\\/div>//g' index.html services.html products.html contact.html about.html)",
+      "Bash(sed -i '' 's/injectMarquee\\(\\);//g' index.html services.html products.html contact.html about.html)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i '' 's|<div id=\"\"marquee-placeholder\"\"></div>||g; s|injectMarquee\\(\\);||g' \"$f\")",
+      "Bash(done)",
+      "Bash(grep -l \"marquee\" *.html)",
+      "Bash(grep -rn \"marquee\" /Users/gaveennanayakkara/Downloads/willow-foods-website/*.html)"
+    ]
+  }
+}
