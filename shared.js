@@ -12,10 +12,10 @@ function injectNav(isDark = false) {
     <a href="/" class="nav-logo" aria-label="Willow Foods home">
       <img src="WFlogo.svg" alt="Willow Foods" class="nav-logo-img">
     </a>
-    <button class="nav-hamburger" onclick="document.getElementById('mainNav').classList.toggle('nav-open')" aria-label="Menu">
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" id="menuToggle">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="/products" ${page==='products'||page.includes('product-')?'class="active"':''}>Products</a></li>
       <li><a href="/services" ${page==='services'?'class="active"':''}>Services</a></li>
       <li><a href="/about" ${page==='about'?'class="active"':''}>About Us</a></li>
@@ -25,6 +25,12 @@ function injectNav(isDark = false) {
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    const links = document.getElementById('navLinks');
+    const isOpen = links.classList.toggle('open');
+    this.classList.toggle('open');
+    this.setAttribute('aria-expanded', isOpen);
   });
 }
 
