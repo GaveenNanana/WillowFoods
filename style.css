@@ -520,10 +520,12 @@ footer {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  position: relative;
   z-index: 101;
   background: none;
   border: none;
   padding: 4px;
+  color: var(--dark);
 }
 .hamburger span {
   display: block;
@@ -532,9 +534,11 @@ footer {
   background: currentColor;
   transition: all 0.3s;
 }
+.hamburger.open { color: var(--cream); }
 .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+nav.menu-open { background: var(--dark) !important; }
 
 /* ——— MOBILE ——— */
 @media (max-width: 768px) {
