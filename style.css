@@ -540,7 +540,7 @@ footer {
 
 /* ——— MOBILE ——— */
 @media (max-width: 768px) {
-  nav { padding: 16px 24px; position: relative; }
+  nav { padding: 16px 24px; }
   nav.scrolled { padding: 12px 24px; }
   .hamburger { display: flex; }
   .nav-links { display: none; }
