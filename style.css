@@ -561,12 +561,13 @@ footer {
   .nav-links.open a {
     display: block;
     font-size: 13px;
-    color: rgba(245,240,232,0.75);
+    font-weight: 400;
+    color: var(--cream);
     padding: 14px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     letter-spacing: 2px;
   }
-  .nav-links.open a:hover { color: var(--cream); background: rgba(255,255,255,0.04); }
+  .nav-links.open a:hover { color: var(--gold); background: rgba(255,255,255,0.04); }
   .nav-links.open li:last-child a { border-bottom: none; }
   .nav-links.open .btn-nav {
     margin: 8px 24px 0;
