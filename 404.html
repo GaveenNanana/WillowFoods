@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Willow Foods</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="style.css">
+<style>
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  background: var(--warm-white);
+  position: relative;
+  overflow: hidden;
+}
+.not-found-bg {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(160px, 30vw, 320px);
+  font-weight: 300;
+  color: rgba(26,23,18,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.not-found-content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+.not-found-code {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.not-found-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.not-found-title em { font-style: italic; color: var(--sage); }
+.not-found-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 48px;
+}
+.not-found-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.not-found-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 40px;
+}
+@media (max-width: 480px) {
+  .not-found-code { font-size: 88px; }
+  .not-found-actions { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div id="nav-placeholder"></div>
+
+<section class="not-found" id="main-content">
+  <div class="not-found-bg">404</div>
+  <div class="not-found-content">
+    <div class="not-found-code reveal">404</div>
+    <div class="not-found-divider reveal"></div>
+    <h1 class="not-found-title reveal">Page not <em>found</em></h1>
+    <p class="not-found-text reveal">The page you're looking for has moved or doesn't exist. Let us help you find what you need.</p>
+    <div class="not-found-actions reveal">
+      <a href="/" class="btn-primary">Back to Homepage →</a>
+      <a href="/products" class="btn-outline-dark">View Our Products</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="shared.js"></script>
+<script>injectNav();injectFooter();initReveal();</script>
+</body>
+</html>

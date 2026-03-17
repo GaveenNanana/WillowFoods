@@ -160,5 +160,14 @@ function switchImg(thumb, src) {
   document.getElementById('mainImg').src = src;
 }
 </script>
+<div class="sticky-cta" id="stickyCta">
+  <div><div class="sticky-cta-name">Ceylon Cinnamon</div><div class="sticky-cta-sub">Ceylon · Direct from Source</div></div>
+  <a href="/contact" class="btn-primary">Request a Quote →</a>
+</div>
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('stickyCta').classList.toggle('visible', window.scrollY > 400);
+});
+</script>
 </body>
 </html>

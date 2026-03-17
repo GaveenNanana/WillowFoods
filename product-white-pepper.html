@@ -148,5 +148,14 @@
 injectNav();injectFooter();initReveal();
 function switchImg(thumb,src){document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active'));thumb.classList.add('active');document.getElementById('mainImg').src=src;}
 </script>
+<div class="sticky-cta" id="stickyCta">
+  <div><div class="sticky-cta-name">White Pepper</div><div class="sticky-cta-sub">Ceylon · Direct from Source</div></div>
+  <a href="/contact" class="btn-primary">Request a Quote →</a>
+</div>
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('stickyCta').classList.toggle('visible', window.scrollY > 400);
+});
+</script>
 </body>
 </html>
