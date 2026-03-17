@@ -64,9 +64,18 @@ function injectFooter() {
       </div>
       <div>
         <div class="footer-col-title">Contact Us</div>
-        <div class="footer-contact-item"><span class="icon">✉</span><span>hello@willowfoods.co</span></div>
-        <div class="footer-contact-item"><span class="icon">☏</span><span>+94 76 984 3232</span></div>
-        <div class="footer-contact-item"><span class="icon">◎</span><span>Colombo, Sri Lanka</span></div>
+        <div class="footer-contact-item">
+          <span class="icon"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 4.5l7 5 7-5"/></svg></span>
+          <span>hello@willowfoods.co</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5h2.5l1 3-1.5 1a9 9 0 004.5 4.5l1-1.5 3 1V12A1.5 1.5 0 0112 13.5C5.9 13.5 2.5 7.6 2.5 4A1.5 1.5 0 013 1.5z"/></svg></span>
+          <span>+94 76 984 3232</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5A4.5 4.5 0 0112.5 6c0 3-4.5 8.5-4.5 8.5S3.5 9 3.5 6A4.5 4.5 0 018 1.5z"/><circle cx="8" cy="6" r="1.5"/></svg></span>
+          <span>Colombo, Sri Lanka</span>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">

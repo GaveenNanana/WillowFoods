@@ -446,15 +446,26 @@ footer {
 .footer-links a:hover { color: var(--cream); }
 .footer-contact-item {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
 }
 .footer-contact-item .icon {
-  color: var(--gold);
-  font-size: 14px;
   flex-shrink: 0;
-  margin-top: 1px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-contact-item .icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .footer-contact-item span {
   font-size: 13px;
