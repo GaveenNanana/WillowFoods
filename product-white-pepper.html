@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>White Pepper — Willow Foods</title>
+<meta name="description" content="Premium Ceylon white pepper. Milder heat, smooth earthy flavor. FAQ and ASTA grades. 15–25 MT/month supply from Sri Lanka. Bulk export and private labeling.">
+<meta property="og:title" content="White Pepper — Willow Foods">
+<meta property="og:description" content="Ceylon white pepper — fully ripened berries with outer skin removed. Preferred for light-colored dishes and premium food processing applications.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://willowfoods.co/images/white-pepper.png">
+<link rel="canonical" href="https://willowfoods.co/product-white-pepper.html">
 <link rel="stylesheet" href="style.css">
 <style>
 .product-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px;}
@@ -53,13 +59,14 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="nav-placeholder"></div>
 <a href="/products" class="back-link">Back to Products</a>
 
-<div class="product-layout">
+<div class="product-layout" id="main-content">
   <div class="product-gallery">
     <div class="gallery-main">
-      <img src="images/white-pepper.png" alt="White Pepper" id="mainImg">
+      <img src="images/white-pepper.png" alt="White Pepper" id="mainImg" loading="eager" fetchpriority="high" width="800" height="600">
     </div>
   </div>
   <div class="product-details">
@@ -116,11 +123,11 @@
   <h2 class="section-title reveal">Related <em>Products</em></h2>
   <div class="related-grid">
     <a href="/product-black-pepper" class="related-card reveal">
-      <div class="related-img"><img src="images/black-pepper.png" alt="Black Pepper"></div>
+      <div class="related-img"><img src="images/black-pepper.png" alt="Black Pepper" loading="lazy" width="800" height="600"></div>
       <div class="related-info"><div class="related-name">Black Pepper</div><div class="related-desc">Bold, pungent peppercorns with intense aroma and high piperine content.</div><span class="related-link">View →</span></div>
     </a>
     <a href="/product-cinnamon" class="related-card reveal reveal-delay-1">
-      <div class="related-img"><img src="images/cin.png" alt="Ceylon Cinnamon"></div>
+      <div class="related-img"><img src="images/cin.png" alt="Ceylon Cinnamon" loading="lazy" width="800" height="600"></div>
       <div class="related-info"><div class="related-name">Ceylon Cinnamon</div><div class="related-desc">True cinnamon with sweet, delicate flavor and subtle citrus notes.</div><span class="related-link">View →</span></div>
     </a>
   </div>
@@ -136,6 +143,7 @@
 
 <div id="footer-placeholder"></div>
 <script src="shared.js"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"White Pepper","description":"Premium Ceylon white pepper with milder heat and smooth earthy flavor. FAQ and ASTA grades, sourced from Sri Lanka.","brand":{"@type":"Brand","name":"Willow Foods"},"offers":{"@type":"AggregateOffer","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
 <script>
 injectNav();injectFooter();initReveal();
 function switchImg(thumb,src){document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active'));thumb.classList.add('active');document.getElementById('mainImg').src=src;}

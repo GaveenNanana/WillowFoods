@@ -9,8 +9,37 @@
   --gold: #C4A35A;
   --spice: #8B3A1C;
   --text-mid: #4A4540;
-  --text-light: #8A8078;
+  --text-light: #6B6560;
   --border: rgba(26,23,18,0.12);
+}
+
+/* ——— SKIP LINK ——— */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--dark);
+  color: var(--cream);
+  padding: 12px 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  z-index: 999;
+  transition: top 0.3s;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ——— FOCUS VISIBLE ——— */
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -538,6 +567,16 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) ro
 }
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ——— REDUCED MOTION ——— */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { animation: none; }
 }
 
 /* ——— SHARED JS SNIPPET (included per page) ——— */

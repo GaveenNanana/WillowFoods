@@ -8,8 +8,8 @@ function injectNav(isDark = false) {
   const page = getActivePage();
   const darkClass = isDark ? 'dark-nav' : '';
   document.getElementById('nav-placeholder').innerHTML = `
-  <nav id="mainNav" class="${darkClass}">
-    <a href="/" class="nav-logo">
+  <nav id="mainNav" class="${darkClass}" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="Willow Foods home">
       <img src="WFlogo.svg" alt="Willow Foods" class="nav-logo-img">
     </a>
     <button class="nav-hamburger" onclick="document.getElementById('mainNav').classList.toggle('nav-open')" aria-label="Menu">

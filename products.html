@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Products — Willow Foods</title>
+<meta name="description" content="Browse Willow Foods' range of premium Ceylon spices: Ceylon cinnamon, black pepper and white pepper. Direct from Sri Lanka with private labeling available.">
+<meta property="og:title" content="Our Products — Willow Foods">
+<meta property="og:description" content="Premium Ceylon spices sourced directly from Sri Lanka. Ceylon cinnamon, black pepper and white pepper available in bulk or retail-ready formats.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80">
+<link rel="canonical" href="https://willowfoods.co/products.html">
 <link rel="stylesheet" href="style.css">
 <style>
 .products-main { padding:80px 60px 120px; }
@@ -43,9 +49,10 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="nav-placeholder"></div>
 
-<section class="page-hero" style="--img:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80')">
+<section class="page-hero" id="main-content" style="--img:url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80')">
   <style>.page-hero::before{background-image:var(--img);}</style>
   <div class="page-hero-content">
     <div class="page-hero-eyebrow">Direct from Sri Lanka</div>
@@ -67,14 +74,14 @@
 
   <div class="filter-bar reveal">
     <span class="filter-label">Filter by:</span>
-    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('pepper',this)">Peppers</button>
-    <button class="filter-btn" onclick="filterProducts('bark',this)">Bark & Root</button>
+    <button type="button" class="filter-btn active" aria-pressed="true" onclick="filterProducts('all',this)">All</button>
+    <button type="button" class="filter-btn" aria-pressed="false" onclick="filterProducts('pepper',this)">Peppers</button>
+    <button type="button" class="filter-btn" aria-pressed="false" onclick="filterProducts('bark',this)">Bark & Root</button>
   </div>
 
   <div class="all-products-grid" id="productsGrid">
     <a href="/product-cinnamon" class="prod-card reveal" data-cat="bark">
-      <div class="prod-img"><img src="images/cin.png" alt="Ceylon Cinnamon"></div>
+      <div class="prod-img"><img src="images/cin.png" alt="Ceylon Cinnamon" loading="lazy" width="800" height="600"></div>
       <div class="prod-info">
         <div class="prod-hs">HS Code: 09061100 · 10–20 MT/Month</div>
         <h3 class="prod-name">Ceylon Cinnamon</h3>
@@ -90,7 +97,7 @@
     </a>
 
     <a href="/product-black-pepper" class="prod-card reveal reveal-delay-1" data-cat="pepper">
-      <div class="prod-img"><img src="images/black-pepper.png" alt="Black Pepper"></div>
+      <div class="prod-img"><img src="images/black-pepper.png" alt="Black Pepper" loading="lazy" width="800" height="600"></div>
       <div class="prod-info">
         <div class="prod-hs">HS Code: 09041120 · 15–25 MT/Month</div>
         <h3 class="prod-name">Black Pepper</h3>
@@ -101,7 +108,7 @@
     </a>
 
     <a href="/product-white-pepper" class="prod-card reveal reveal-delay-2" data-cat="pepper">
-      <div class="prod-img"><img src="images/white-pepper.png" alt="White Pepper"></div>
+      <div class="prod-img"><img src="images/white-pepper.png" alt="White Pepper" loading="lazy" width="800" height="600"></div>
       <div class="prod-info">
         <div class="prod-hs">HS Code: 09041120 · 15–25 MT/Month</div>
         <h3 class="prod-name">White Pepper</h3>
@@ -127,8 +134,9 @@
 <script>
 injectNav();injectFooter();initReveal();
 function filterProducts(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
   btn.classList.add('active');
+  btn.setAttribute('aria-pressed','true');
   document.querySelectorAll('.prod-card').forEach(card => {
     if(cat==='all'||card.dataset.cat===cat) { card.style.display='block'; }
     else { card.style.display='none'; }
