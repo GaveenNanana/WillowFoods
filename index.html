@@ -22,7 +22,8 @@
 .hero-title em { font-style:italic; color:var(--gold); }
 .hero-sub { font-size:14px; line-height:1.8; color:rgba(245,240,232,0.6); max-width:360px; margin-bottom:48px; opacity:0; animation:fadeUp 0.8s 0.7s forwards; }
 .hero-actions { display:flex; gap:16px; opacity:0; animation:fadeUp 0.8s 0.9s forwards; }
-.hero-right { overflow:hidden; }
+.hero-right { overflow:hidden; position:relative; }
+.hero-right::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.25); pointer-events:none; }
 .hero-scroll { position:absolute; bottom:40px; left:calc(50% - 160px); display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(245,240,232,0.4); font-size:9px; letter-spacing:3px; text-transform:uppercase; z-index:10; animation:fadeIn 1s 1.5s both; }
 .scroll-line { width:1px; height:40px; background:var(--gold); animation:scrollPulse 2s infinite; }
 
