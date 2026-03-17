@@ -56,6 +56,13 @@
 .industries-grid { display:flex; flex-wrap:wrap; gap:12px; margin-top:48px; }
 .industry-chip { padding:14px 28px; border:1px solid var(--border); font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--text-mid); cursor:default; transition:all 0.3s; }
 .industry-chip:hover { background:var(--dark); color:var(--cream); border-color:var(--dark); }
+
+/* CERT BADGES */
+.cert-badges { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; padding-top:48px; }
+.cert-badge { text-align:center; padding:20px 28px; border:1px solid var(--border); }
+.cert-badge-label { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--text-light); margin-bottom:8px; }
+.cert-badge-value { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; }
+
 @media (max-width:768px) {
   .services-main { padding:60px 24px; }
   .service-block { grid-template-columns:1fr; min-height:auto; }
@@ -69,6 +76,8 @@
   .process-steps { grid-template-columns:1fr 1fr; gap:48px; }
   .process-steps::before { display:none; }
   .industries-section { padding:60px 24px; }
+  .cert-badges { gap: 16px; padding-top: 32px; }
+  .cert-badge { padding: 16px 20px; flex: 1 1 calc(50% - 8px); min-width: 120px; }
 }
 </style>
 </head>
@@ -178,22 +187,22 @@
       <div class="why-desc">Partner with trusted shipping companies for on-time delivery worldwide with full insurance coverage and real-time tracking.</div>
     </div>
   </div>
-  <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;padding-top:48px;" class="reveal">
-    <div style="text-align:center;padding:20px 28px;border:1px solid var(--border);">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Certified</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;">ISO 22000</div>
+  <div class="cert-badges reveal">
+    <div class="cert-badge">
+      <div class="cert-badge-label">Certified</div>
+      <div class="cert-badge-value">ISO 22000</div>
     </div>
-    <div style="text-align:center;padding:20px 28px;border:1px solid var(--border);">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Standard</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;">HACCP</div>
+    <div class="cert-badge">
+      <div class="cert-badge-label">Standard</div>
+      <div class="cert-badge-value">HACCP</div>
     </div>
-    <div style="text-align:center;padding:20px 28px;border:1px solid var(--border);">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Compliant</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;">EU Export</div>
+    <div class="cert-badge">
+      <div class="cert-badge-label">Compliant</div>
+      <div class="cert-badge-value">EU Export</div>
     </div>
-    <div style="text-align:center;padding:20px 28px;border:1px solid var(--border);">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:8px;">Verified</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;">Direct Source</div>
+    <div class="cert-badge">
+      <div class="cert-badge-label">Verified</div>
+      <div class="cert-badge-value">Direct Source</div>
     </div>
   </div>
 </section>

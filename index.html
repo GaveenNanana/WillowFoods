@@ -71,18 +71,32 @@
 .about-content { padding:100px 80px; display:flex; flex-direction:column; justify-content:center; background:var(--cream); }
 .about-mission { margin-top:32px; padding:32px; background:var(--warm-white); border-left:2px solid var(--gold); }
 .about-mission p { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; line-height:1.6; color:var(--text-mid); font-style:italic; }
+/* ——— TESTIMONIALS ——— */
+.testimonials-section { padding: 80px 60px; background: var(--cream); text-align: center; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--border); max-width: 900px; margin: 0 auto; }
+.testimonial-card { background: var(--warm-white); padding: 36px 32px; }
+.testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+.testimonial-source { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); }
+
 @media (max-width: 768px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 120px 24px 60px; min-height: 70vh; }
-  .hero-right { height: 260px; grid-template-rows: 1fr; padding: 0; }
-  .hero-img-bottom { display: none; }
+  .hero-right { height: 260px; padding: 0; }
+  .hero-scroll { display: none; }
   .home-services { padding: 64px 24px; }
   .services-cards { grid-template-columns: 1fr; }
+  .svc-card { padding: 36px 28px; }
   .home-products { padding: 64px 24px; }
   .products-grid { grid-template-columns: 1fr; }
   .product-card.featured { grid-column: span 1; }
   .product-card.featured .product-img { aspect-ratio: 4/3; }
   .products-header, .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .stats-band { grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 40px 20px; }
+  .stat-num { font-size: 48px; }
+  .testimonials-section { padding: 64px 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 28px 24px; }
   .about-teaser { grid-template-columns: 1fr; }
   .about-img { height: 300px; }
   .about-content { padding: 48px 24px; }
@@ -195,21 +209,21 @@
   <div class="stat-item reveal reveal-delay-3"><div class="stat-num">15+</div><div class="stat-label">Years of Heritage</div></div>
 </div>
 
-<section style="padding:80px 60px;background:var(--cream);text-align:center;">
+<section class="testimonials-section">
   <div class="section-label reveal" style="justify-content:center"><span>Trusted Worldwide</span></div>
   <h2 class="section-title reveal" style="text-align:center;margin-bottom:48px">Trusted by <em>200+ Businesses</em></h2>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);max-width:900px;margin:0 auto;" class="reveal">
-    <div style="background:var(--warm-white);padding:36px 32px;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--text-mid);line-height:1.7;margin-bottom:20px;">"Consistent quality across every shipment. Willow Foods is our go-to supplier for Ceylon cinnamon."</div>
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);">— European Spice Wholesaler</div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Consistent quality across every shipment. Willow Foods is our go-to supplier for Ceylon cinnamon."</div>
+      <div class="testimonial-source">— European Spice Wholesaler</div>
     </div>
-    <div style="background:var(--warm-white);padding:36px 32px;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--text-mid);line-height:1.7;margin-bottom:20px;">"Their private labeling service helped us launch our brand in 6 weeks. Exceptional support throughout."</div>
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);">— UK Health Food Brand</div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Their private labeling service helped us launch our brand in 6 weeks. Exceptional support throughout."</div>
+      <div class="testimonial-source">— UK Health Food Brand</div>
     </div>
-    <div style="background:var(--warm-white);padding:36px 32px;">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--text-mid);line-height:1.7;margin-bottom:20px;">"Documentation, shipping, quality reports — they handle everything professionally. A true partner."</div>
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);">— US Food Manufacturer</div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"Documentation, shipping, quality reports — they handle everything professionally. A true partner."</div>
+      <div class="testimonial-source">— US Food Manufacturer</div>
     </div>
   </div>
 </section>

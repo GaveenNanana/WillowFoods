@@ -42,12 +42,15 @@
 .form-success .success-icon { font-size:40px; color:var(--gold); margin-bottom:16px; }
 .form-success h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:var(--dark); margin-bottom:12px; }
 .form-success p { font-size:14px; color:var(--text-light); line-height:1.7; }
+.whatsapp-btn { display:inline-flex; align-items:center; gap:10px; margin-top:24px; padding:14px 24px; border:1px solid rgba(196,163,90,0.3); color:var(--cream); text-decoration:none; font-size:12px; letter-spacing:2px; text-transform:uppercase; transition:border-color 0.3s; }
+.whatsapp-btn:hover { border-color:rgba(196,163,90,0.7); }
 @media (max-width:768px) {
   .contact-layout { grid-template-columns:1fr; }
   .contact-info { padding:60px 24px; }
   .contact-info::before { font-size:120px; }
   .contact-form-wrap { padding:60px 24px; }
   .form-row { grid-template-columns:1fr; gap:0; }
+  .whatsapp-btn { width:100%; justify-content:center; box-sizing:border-box; }
 }
 </style>
 </head>
@@ -94,7 +97,7 @@
       </div>
     </div>
 
-    <a href="https://wa.me/94769843232" target="_blank" rel="noopener" class="reveal" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:14px 24px;border:1px solid rgba(196,163,90,0.3);color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:border-color 0.3s;">WhatsApp Us →</a>
+    <a href="https://wa.me/94769843232" target="_blank" rel="noopener" class="whatsapp-btn reveal">WhatsApp Us →</a>
 
   </div>
 
