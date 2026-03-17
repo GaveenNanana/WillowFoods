@@ -505,18 +505,18 @@ nav.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-6.5px) ro
   .nav-links {
     display: none;
     position: fixed;
-    top: 65px; left: 0; right: 0; bottom: 0;
+    top: 0; left: 0; right: 0;
+    height: 100vh;
     background: #fff;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    padding: 16px 24px 40px;
+    padding: 80px 24px 40px;
     overflow-y: auto;
-    z-index: 200;
-    border-top: 1px solid var(--border);
+    z-index: 99;
+    border-top: none;
   }
   nav.nav-open .nav-links { display: flex; }
-  nav.scrolled.nav-open .nav-links { top: 57px; }
   .nav-links li { width: 100%; }
   .nav-links a {
     display: block;
