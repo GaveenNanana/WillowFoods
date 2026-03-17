@@ -31,7 +31,6 @@ function injectNav(isDark = false) {
     const isOpen = links.classList.toggle('open');
     this.classList.toggle('open');
     this.setAttribute('aria-expanded', isOpen);
-    nav.classList.toggle('menu-open', isOpen);
   });
 }
 
