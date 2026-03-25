@@ -173,7 +173,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
   btn.textContent = 'Sending…';
   btn.disabled = true;
   const data = new FormData(this);
-  const res = await fetch('https://formspree.io/f/xnjgbqnn', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+  const res = await fetch('https://formspree.io/f/mkopwlae', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
   if (res.ok) {
     document.getElementById('formWrap').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
